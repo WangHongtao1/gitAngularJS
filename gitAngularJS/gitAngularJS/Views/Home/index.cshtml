@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/content/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width"charset="utf-8" />
+    <title></title>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="HomeController">
+        <h2>Welcome to study {{hello.title}} Js</h2>
+    </div>
+
+    <div ng-app="" ng-init="countries = [{locale:'en-US',name:'United States'}, 
+         {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+        <p>Enter your Name: <input type="text" ng-model="name"></p>
+        <p>Hello <span ng-bind="name"></span>!</p>
+        <p>List of Countries with locale:</p>
+
+        <ol>
+            <li ng-repeat="country in countries">
+                {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+            </li>
+        </ol>
+    </div>
+     <script>
+        angular.module("myApp", [])
+        .controller("HomeController", function ($scope) {
+            $scope.hello = {};
+            $scope.hello.title = "Angular"
+            });
+        
+
+
+    </script>
+</body>
+</html>
